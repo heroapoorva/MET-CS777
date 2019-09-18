@@ -26,13 +26,13 @@ def main():
     '''
     Part 2 code starts here
     '''
-    sc2 = SparkContext()
-    sc2.stop()
+    #sc2 = SparkContext()
+    #sc2.stop()
     '''
     Part 3 code starts here
     '''
-    sc3 = SparkContext()
-    sc3.stop()
+    #sc3 = SparkContext()
+    #sc3.stop()
     
 if __name__ == "__main__":
     '''
