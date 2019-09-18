@@ -14,9 +14,13 @@ def main():
             filter(lambda x: len(x) == 17).\
             map(lambda x: (x[0],1)).\
             reduceByKey(add)
-    temp_output = count.collect()
-    output = sorted(temp_output, key=lambda tup: tup[1])[-10:]
-    output = list(reversed(output))
+    output = count.top(10, key=lambda x: x[1])
+    output = sorted(output)
+#    count = count.top(10)
+#    output = count.collect()    
+#    temp_output = count.collect()
+#    output = sorted(temp_output, key=lambda tup: tup[1])[-10:]
+#    output = list(reversed(output))
     fh = open(sys.argv[2],"w") 
     for i in range(len(output)):
         fh.write(str(output[i]))
@@ -26,13 +30,13 @@ def main():
     '''
     Part 2 code starts here
     '''
-    #sc2 = SparkContext()
-    #sc2.stop()
+#    sc2 = SparkContext()
+#    sc2.stop()
     '''
     Part 3 code starts here
     '''
-    #sc3 = SparkContext()
-    #sc3.stop()
+#    sc3 = SparkContext()
+#    sc3.stop()
     
 if __name__ == "__main__":
     '''
@@ -42,4 +46,3 @@ if __name__ == "__main__":
         print("Usage: wordcount <file> <output> ", file=sys.stderr)
         exit(-1)
     main()
-
